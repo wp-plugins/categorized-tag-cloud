@@ -4,7 +4,7 @@ Plugin Name: Categorized Tag Cloud
 Plugin URI: http://www.whiletrue.it/
 Description: Takes the website tags and aggregates them into a categorized cloud widget for sidebar.
 Author: WhileTrue
-Version: 1.0
+Version: 1.0.1
 Author URI: http://www.whiletrue.it/
 */
 

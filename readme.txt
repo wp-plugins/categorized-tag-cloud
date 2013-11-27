@@ -4,7 +4,7 @@ Donate link: http://www.whiletrue.it/
 Tags: tag, tags, tag sidebar, category, categories, categorize, categorized, filter, filters, sidebar, widget, plugin, posts, links, tag widget, simple tag, cloud, tag cloud, tags cloud
 Requires at least: 2.9+
 Tested up to: 3.7.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 A cloud with the most used tags in a sidebar widget, filtered by post category.
 
@@ -13,6 +13,8 @@ A cloud with the most used tags in a sidebar widget, filtered by post category.
 
 The words inside the cloud are filtered by category, so you can better match your content by removing the unnecessary tag ids. 
 
+= Options =
+
 The following options are customizable:
 
 * category filters
@@ -20,6 +22,8 @@ The following options are customizable:
 * tag colors (fixed or random)
 * tag hover color
 * smallest and biggest font size
+
+= Reference =
 
 For more informations:  [www.whiletrue.it](http://www.whiletrue.it/categorized-tag-cloud-widget-wordpress/ "www.whiletrue.it")
 
@@ -37,6 +41,9 @@ Do you like this plugin? Give a chance to our other works:
 4. Enjoy!
 
 == Changelog ==
+
+= 1.0.1 =
+* Readme update
 
 = 1.0 =
 * Initial release
