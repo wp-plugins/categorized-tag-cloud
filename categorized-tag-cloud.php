@@ -4,7 +4,7 @@ Plugin Name: Categorized Tag Cloud
 Plugin URI: http://www.whiletrue.it/
 Description: Takes the website tags and aggregates them into a categorized cloud widget for sidebar.
 Author: WhileTrue
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://www.whiletrue.it/
 */
 
@@ -73,7 +73,7 @@ class CategorizedTagCloudWidget extends WP_Widget {
         'name'=>'title',             'label'=>'Title:', 
         'type'=>'text'),
 			array(
-        'name'=>'words_number',      'label'=>'Number of words to show:', 
+        'name'=>'words_number',      'label'=>'How many tags to show:', 
         'type'=>'text'),
 			array(
         'name'=>'words_color',       'label'=>'Word color (random if not entered):', 
@@ -88,7 +88,7 @@ class CategorizedTagCloudWidget extends WP_Widget {
         'name'=>'largest_font',      'label'=>'Largest font size (default is 14):', 
         'type'=>'text'),
 			array(
-				'label' => __( 'Category filters', 'categorized-tag-cloud' ),
+				'label' => 'Category filters',
 				'type'	=> 'separator'			),
 			array(
 				'type'	=> 'category_filters'			),
@@ -149,7 +149,7 @@ class CategorizedTagCloudWidget extends WP_Widget {
 		foreach ($this->options as $val) {
 			if ($val['type']=='separator') {
 				if (isset($val['label']) && $val['label']!='') {
-					echo '<h3>'.$val['label'].'</h3>';
+					echo '<h3>'.__($val['label'], 'categorized-tag-cloud' ).'</h3>';
 				} else {
 					echo '<hr />';
 				}
@@ -160,7 +160,10 @@ class CategorizedTagCloudWidget extends WP_Widget {
         $category_filters = (array)json_decode($instance['category_filters']);
 				echo '<input name="categorized-tag-cloud-num-filters" type="hidden" value="'.(count($category_filters)+2).'" />';
         echo '<table>
-          <tr><th>'.__('category slug', 'categorized-tag-cloud').'</th><th style="min-width:300px">'.__('excluded tags id, comma separated', 'categorized-tag-cloud').'</th></tr>';
+          <tr>
+            <th>'.__('category slug', 'categorized-tag-cloud').'</th>
+            <th style="min-width:300px">'.__('excluded tags id, comma separated', 'categorized-tag-cloud').'</th>
+          </tr>';
         for ($i=0; $i<count($category_filters['cat']); $i++) {
           echo '
             <tr>
@@ -176,13 +179,13 @@ class CategorizedTagCloudWidget extends WP_Widget {
   			echo '</table>';
       } else if ($val['type']=='text') {
   			echo '<p>
-  				      <label for="'.$this->get_field_id($val['name']).'">'.__($val['label']).'</label> 
+  				      <label for="'.$this->get_field_id($val['name']).'">'.__($val['label'], 'categorized-tag-cloud' ).'</label> 
   				   ';
 				echo '<input class="widefat" id="'.$this->get_field_id($val['name']).'" name="'.$this->get_field_name($val['name']).'" type="text" value="'.esc_attr($instance[$val['name']]).'" />';
   			echo '</p>';
 			} else if ($val['type']=='checkbox') {
   			echo '<p>
-  				      <label for="'.$this->get_field_id($val['name']).'">'.__($val['label']).'</label> 
+  				      <label for="'.$this->get_field_id($val['name']).'">'.__($val['label'], 'categorized-tag-cloud' ).'</label> 
   				   ';
 				$checked = ($instance[$val['name']]) ? 'checked="checked"' : '';
 				echo '<input id="'.$this->get_field_id($val['name']).'" name="'.$this->get_field_name($val['name']).'" type="checkbox" '.$checked.' />';
