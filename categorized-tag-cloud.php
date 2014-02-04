@@ -4,7 +4,7 @@ Plugin Name: Categorized Tag Cloud
 Plugin URI: http://www.whiletrue.it/
 Description: Takes the website tags and aggregates them into a categorized cloud widget for sidebar.
 Author: WhileTrue
-Version: 1.0.4
+Version: 1.1
 Author URI: http://www.whiletrue.it/
 */
 
@@ -27,8 +27,8 @@ function categorized_tag_cloud ($instance) {
 	$words_color   = $instance['words_color'];
 	$hover_color   = (isset($instance['hover_color'])   && $instance['hover_color']!='') ? $instance['hover_color'] : 'black';
 	$number        = (isset($instance['words_number'])  && is_numeric($instance['words_number'])  && $instance['words_number'] >0) ? $instance['words_number'] : 20;
-	$smallest_size = (isset($instance['smallest_size']) && is_numeric($instance['smallest_size']) && $instance['smallest_size']>0) ? $instance['smallest_size'] : 7;
-	$largest_size  = (isset($instance['largest_size'])  && is_numeric($instance['largest_size'])  && $instance['largest_size'] >0) ? $instance['largest_size']  : 14;
+	$smallest_font = (isset($instance['smallest_font']) && is_numeric($instance['smallest_font']) && $instance['smallest_font']>0) ? $instance['smallest_font'] : 7;
+	$largest_font  = (isset($instance['largest_font'])  && is_numeric($instance['largest_font'])  && $instance['largest_font'] >0) ? $instance['largest_font']  : 14;
 
   $exclude_items = array();
   $category_filters = (array)json_decode($instance['category_filters']);
@@ -38,7 +38,7 @@ function categorized_tag_cloud ($instance) {
     }
   }
 
-	$tags = wp_tag_cloud('smallest=14&largest=30&number='.$number.'&order=RAND&format=array&exclude='.implode(',',$exclude_items) );
+	$tags = wp_tag_cloud('smallest='.$smallest_font.'&largest='.$largest_font  .'&number='.$number.'&order=RAND&format=array&exclude='.implode(',',$exclude_items) );
 
 	$out = '';
 	$out_style = '';
