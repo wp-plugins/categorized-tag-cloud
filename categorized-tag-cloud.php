@@ -4,7 +4,7 @@ Plugin Name: Categorized Tag Cloud
 Plugin URI: http://www.whiletrue.it/
 Description: Takes the website tags and aggregates them into a categorized cloud widget for sidebar.
 Author: WhileTrue
-Version: 1.1
+Version: 1.2
 Author URI: http://www.whiletrue.it/
 */
 
@@ -41,15 +41,17 @@ function categorized_tag_cloud ($instance) {
 	$tags = wp_tag_cloud('smallest='.$smallest_font.'&largest='.$largest_font  .'&number='.$number.'&order=RAND&format=array&exclude='.implode(',',$exclude_items) );
 
 	$out = '';
-	$out_style = '';
+	$out_style = '
+  		#'.$plugin_name.' a, #'.$plugin_name.' a:visited { text-decoration:none; }
+      #'.$plugin_name.' a:hover { text-decoration:none; color:'.$hover_color.'; }';	
 	foreach ($tags as $num=>$tag) {
 		$i = $num+1;
 		$out .=  '<span id="'.$plugin_name.'-el-'.$i.'">'.$tag.'</span> ';
 
 		$the_color = ($words_color=='') ? '#'.str_pad(dechex(rand(0,4096)),3,'0',STR_PAD_LEFT) : $words_color;
 		$out_style .=  '
-  		#'.$plugin_name.'-el-'.$i.' a, #'.$plugin_name.'-el-'.$i.' a:visited { text-decoration:none; color:'.$the_color.'; }';	
-	}	
+  		#'.$plugin_name.'-el-'.$i.' a, #'.$plugin_name.'-el-'.$i.' a:visited { color:'.$the_color.'; }';	
+	}
 	
 	return '
     <div id="'.$plugin_name.'">'.$out.'</div>
