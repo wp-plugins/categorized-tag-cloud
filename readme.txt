@@ -4,7 +4,7 @@ Donate link: http://www.whiletrue.it/
 Tags: tag, tags, tag sidebar, category, categories, categorize, categorized, filter, filters, sidebar, widget, plugin, posts, links, tag widget, simple tag, cloud, tag cloud, tags cloud
 Requires at least: 2.9+
 Tested up to: 4.0
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 A cloud with the most used tags in a sidebar widget, filtered by post category.
 
@@ -42,6 +42,9 @@ Do you like this plugin? Give a chance to our other works:
 
 == Changelog ==
 
+= 1.2.1 =
+* Fixed: tested up to WP 4.0
+
 = 1.2 =
 * Fixed: hover color
 * Fixed: CSS cleaning
@@ -51,12 +54,8 @@ Do you like this plugin? Give a chance to our other works:
 
 = 1.0.4 =
 * Added: donate link
-
-= 1.0.2 =
-* Fixed: Layout cleaning
-
-= 1.0.1 =
 * Changed: Readme update
+* Fixed: Layout cleaning
 
 = 1.0 =
 * Initial release
