@@ -4,7 +4,7 @@ Plugin Name: Categorized Tag Cloud
 Plugin URI: http://www.whiletrue.it/
 Description: Takes the website tags and aggregates them into a categorized cloud widget for sidebar.
 Author: WhileTrue
-Version: 1.2.1
+Version: 1.2.2
 Author URI: http://www.whiletrue.it/
 */
 
@@ -68,8 +68,13 @@ function categorized_tag_cloud ($instance) {
  * CategorizedTagCloudWidget Class
  */
 class CategorizedTagCloudWidget extends WP_Widget {
+    private /** @type {string} */ $languagePath;
+
     /** constructor */
     function CategorizedTagCloudWidget() {
+      $this->languagePath = basename(dirname(__FILE__)).'/lang';
+      load_plugin_textdomain('categorized-tag-cloud', 'false', $this->languagePath);
+
 		$this->options = array(
 			array(
         'name'=>'title',             'label'=>'Title:', 
